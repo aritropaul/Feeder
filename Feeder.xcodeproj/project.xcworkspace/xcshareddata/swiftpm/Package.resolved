@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Nuke",
+        "repositoryURL": "https://github.com/kean/Nuke.git",
+        "state": {
+          "branch": null,
+          "revision": "7f73ceaeacd5df75a7994cd82e165ad9ff1815db",
+          "version": "9.6.1"
+        }
+      },
+      {
+        "package": "SPIndicator",
+        "repositoryURL": "https://github.com/ivanvorobei/SPIndicator",
+        "state": {
+          "branch": null,
+          "revision": "eee3beb4f45d02168720a240b1cf4a28c76497d6",
+          "version": "1.2.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

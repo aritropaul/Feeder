@@ -76,12 +76,10 @@ class FeedViewController: UITableViewController {
         var action: NSAttributedString!
         switch event.type {
         case "WatchEvent":
-            
             action = NSMutableAttributedString()
                     .bold("\(event.actor.login)")
                     .normal(" starred ")
                     .bold("\(event.repo.name)")
-                    
         case "ForkEvent":
             action = NSMutableAttributedString()
                 .bold("\(event.actor.login)")
@@ -91,6 +89,11 @@ class FeedViewController: UITableViewController {
             action = NSMutableAttributedString()
                 .bold("\(event.actor.login)")
                 .normal(" created a repository ")
+                .bold("\(event.repo.name)")
+        case "ReleaseEvent":
+            action = NSMutableAttributedString()
+                .bold("\(event.actor.login)")
+                .normal(" released a new version of ")
                 .bold("\(event.repo.name)")
         default:
             break
@@ -106,7 +109,7 @@ class FeedViewController: UITableViewController {
 
         }
         else {
-            cell.langColorView.backgroundColor = UIColor(hex: (colors?[event.repository?.language ?? "Markdown"]?.color)!)
+            cell.langColorView.backgroundColor = UIColor(hex: (colors?[event.repository?.language ?? "Markdown"]?.color) ?? "#cccccc")
 
         }
         return cell
@@ -203,7 +206,7 @@ class FeedViewController: UITableViewController {
 extension FeedViewController: EventsDelegate {
     func didGetEvents(events: [Event]) {
         self.events = events.filter({ event in
-            if event.type == "CreateEvent" || event.type == "WatchEvent" || event.type == "ForkEvent" {
+            if event.type == "CreateEvent" || event.type == "WatchEvent" || event.type == "ForkEvent" || event.type == "ReleaseEvent" {
                 return true
             }
             return false

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30084A3A2689133500939234 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 30084A392689133500939234 /* Nuke */; };
+		30084A3D2689136D00939234 /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 30084A3C2689136D00939234 /* SPIndicator */; };
+		30084A3F2689151F00939234 /* keys.json in Resources */ = {isa = PBXBuildFile; fileRef = 30084A3E2689151F00939234 /* keys.json */; };
 		305E4735267FD32F00F7DB26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305E4734267FD32F00F7DB26 /* AppDelegate.swift */; };
 		305E4737267FD32F00F7DB26 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305E4736267FD32F00F7DB26 /* SceneDelegate.swift */; };
 		305E473C267FD32F00F7DB26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305E473A267FD32F00F7DB26 /* Main.storyboard */; };
@@ -18,8 +21,6 @@
 		305E4751267FEA8500F7DB26 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305E4750267FEA8500F7DB26 /* LoginViewController.swift */; };
 		305E4753267FEE3B00F7DB26 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305E4752267FEE3B00F7DB26 /* FeedViewController.swift */; };
 		305E4755267FF1A000F7DB26 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305E4754267FF1A000F7DB26 /* EventTableViewCell.swift */; };
-		305E4758267FF35200F7DB26 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 305E4757267FF35200F7DB26 /* Nuke */; };
-		305E475B267FF36400F7DB26 /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 305E475A267FF36400F7DB26 /* SPIndicator */; };
 		305E475D267FF57A00F7DB26 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305E475C267FF57A00F7DB26 /* Extensions.swift */; };
 		305E475F267FF64E00F7DB26 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305E475E267FF64E00F7DB26 /* Repository.swift */; };
 		305E47612680375200F7DB26 /* ImageBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305E47602680375200F7DB26 /* ImageBarButton.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30084A3E2689151F00939234 /* keys.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = keys.json; sourceTree = SOURCE_ROOT; };
 		305E4731267FD32F00F7DB26 /* Feeder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feeder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		305E4734267FD32F00F7DB26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		305E4736267FD32F00F7DB26 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,8 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				305E4758267FF35200F7DB26 /* Nuke in Frameworks */,
-				305E475B267FF36400F7DB26 /* SPIndicator in Frameworks */,
+				30084A3A2689133500939234 /* Nuke in Frameworks */,
+				30084A3D2689136D00939234 /* SPIndicator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				305E4734267FD32F00F7DB26 /* AppDelegate.swift */,
+				30084A3E2689151F00939234 /* keys.json */,
 				305E4736267FD32F00F7DB26 /* SceneDelegate.swift */,
 				305E4750267FEA8500F7DB26 /* LoginViewController.swift */,
 				305E4752267FEE3B00F7DB26 /* FeedViewController.swift */,
@@ -131,8 +134,8 @@
 			);
 			name = Feeder;
 			packageProductDependencies = (
-				305E4757267FF35200F7DB26 /* Nuke */,
-				305E475A267FF36400F7DB26 /* SPIndicator */,
+				30084A392689133500939234 /* Nuke */,
+				30084A3C2689136D00939234 /* SPIndicator */,
 			);
 			productName = Feeder;
 			productReference = 305E4731267FD32F00F7DB26 /* Feeder.app */;
@@ -163,8 +166,8 @@
 			);
 			mainGroup = 305E4728267FD32F00F7DB26;
 			packageReferences = (
-				305E4756267FF35200F7DB26 /* XCRemoteSwiftPackageReference "Nuke" */,
-				305E4759267FF36400F7DB26 /* XCRemoteSwiftPackageReference "SPIndicator" */,
+				30084A382689133500939234 /* XCRemoteSwiftPackageReference "Nuke" */,
+				30084A3B2689136D00939234 /* XCRemoteSwiftPackageReference "SPIndicator" */,
 			);
 			productRefGroup = 305E4732267FD32F00F7DB26 /* Products */;
 			projectDirPath = "";
@@ -181,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				305E4741267FD33100F7DB26 /* LaunchScreen.storyboard in Resources */,
+				30084A3F2689151F00939234 /* keys.json in Resources */,
 				305E473E267FD33100F7DB26 /* Assets.xcassets in Resources */,
 				305E473C267FD32F00F7DB26 /* Main.storyboard in Resources */,
 			);
@@ -434,7 +438,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		305E4756267FF35200F7DB26 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+		30084A382689133500939234 /* XCRemoteSwiftPackageReference "Nuke" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kean/Nuke.git";
 			requirement = {
@@ -442,7 +446,7 @@
 				minimumVersion = 9.0.0;
 			};
 		};
-		305E4759267FF36400F7DB26 /* XCRemoteSwiftPackageReference "SPIndicator" */ = {
+		30084A3B2689136D00939234 /* XCRemoteSwiftPackageReference "SPIndicator" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ivanvorobei/SPIndicator";
 			requirement = {
@@ -453,14 +457,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		305E4757267FF35200F7DB26 /* Nuke */ = {
+		30084A392689133500939234 /* Nuke */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 305E4756267FF35200F7DB26 /* XCRemoteSwiftPackageReference "Nuke" */;
+			package = 30084A382689133500939234 /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = Nuke;
 		};
-		305E475A267FF36400F7DB26 /* SPIndicator */ = {
+		30084A3C2689136D00939234 /* SPIndicator */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 305E4759267FF36400F7DB26 /* XCRemoteSwiftPackageReference "SPIndicator" */;
+			package = 30084A3B2689136D00939234 /* XCRemoteSwiftPackageReference "SPIndicator" */;
 			productName = SPIndicator;
 		};
 /* End XCSwiftPackageProductDependency section */

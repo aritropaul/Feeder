@@ -32,14 +32,30 @@ protocol RepoDelegate: GHDelegate {
 
 class API {
     static let shared = API()
-    static let clientID = ""
-    static let clientSecret = ""
+    static var clientID = ""
+    static var clientSecret = ""
     static let callback = "feeder://login/".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
     static var token = ""
     
     weak var userDelegate: UserDelegate?
     weak var eventsDelegate: EventsDelegate?
     weak var repoDelegate: RepoDelegate?
+    
+    func loadKeys() {
+        if let path = Bundle.main.path(forResource: "keys", ofType: "json") {
+            do {
+                  let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                  let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+                  if let jsonResult = jsonResult as? Dictionary<String, String> {
+                      API.clientID = jsonResult["clientID"] ?? ""
+                      API.clientSecret = jsonResult["clientSecret"] ?? ""
+                  }
+              } catch {
+                   print("🥵 Could not load keys")
+              }
+        }
+    }
+    
     
     private func request<T:Codable>(type: RequestType, base: String, endpoint: String, headers: [String: String]? = nil, completion: @escaping(Result<T, Error>)->()) {
         let url = URL(string: base + endpoint)!
@@ -139,9 +155,6 @@ class API {
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
             if let response = response as? HTTPURLResponse {
-                print(request.url)
-                print(response.statusCode)
-                print(String(data: data!, encoding: .utf8))
                 if response.statusCode == 204 {
                     completion(true)
                 }

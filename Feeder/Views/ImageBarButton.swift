@@ -12,7 +12,7 @@ class ImageBarButton : UIView {
     var imageView: UIImageView!
     var button: UIButton!
 
-    convenience init(withUrl imageURL: URL? = nil, withImage image: UIImage? = nil, frame: CGRect = CGRect(x: 0, y: 0, width: 32, height: 32), menu: UIMenu? = nil) {
+    convenience init(withUrl imageURL: URL? = nil, withImage image: UIImage? = nil, frame: CGRect = CGRect(x: 4, y: 0, width: 24, height: 24), menu: UIMenu? = nil) {
         self.init(frame: frame)
 
         imageView = UIImageView(frame: frame)

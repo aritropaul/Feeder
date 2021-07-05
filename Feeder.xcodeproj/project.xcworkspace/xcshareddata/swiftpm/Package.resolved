@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "MarkdownView",
+        "repositoryURL": "https://github.com/keitaoouchi/MarkdownView.git",
+        "state": {
+          "branch": null,
+          "revision": "b88cd53afe4c8bb42d40e0141be03922d1d3c6c9",
+          "version": "1.7.1"
+        }
+      },
+      {
         "package": "Nuke",
         "repositoryURL": "https://github.com/kean/Nuke.git",
         "state": {

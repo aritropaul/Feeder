@@ -13,6 +13,7 @@ struct Event: Codable {
     var actor: Actor
     var repo: Repo
     var repository: Repository?
+    var payload: Payload?
     var created_at: String
 }
 
@@ -22,6 +23,27 @@ struct Actor: Codable {
     var display_login: String
     var avatar_url: String
     var url: String
+}
+
+struct Payload: Codable {
+    var action: String?
+    var release: Release?
+    var forkee: Forkee?
+}
+
+struct Release: Codable {
+    var url: String
+    var html_url: String
+    var id: Int
+    var tag_name: String
+    var name: String
+    var body: String
+}
+
+struct Forkee: Codable {
+    var id: Int
+    var full_name: String
+    var html_url: String
 }
 
 struct Repo: Codable {

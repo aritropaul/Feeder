@@ -17,6 +17,12 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        API.shared.getColors()
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         API.shared.userDelegate = self
         if (UserDefaults.standard.string(forKey: "token") != nil) {
             API.token = UserDefaults.standard.string(forKey: "token") ?? ""
@@ -24,12 +30,10 @@ class LoginViewController: UIViewController {
             loginButton.setTitle("Authenticated", for: .normal)
             loginButton.isUserInteractionEnabled = false
         }
-
-        API.shared.getColors()
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
+        else {
+            authed = false
+        }
+        
         if authed {
             API.shared.getUser()
         }
@@ -82,7 +86,7 @@ extension LoginViewController: UserDelegate {
     func DidGetUser(user: User) {
         print(user)
         self.user = user
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.performSegue(withIdentifier: "feed", sender: Any?.self)
         }
     }

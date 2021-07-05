@@ -15,6 +15,10 @@ class FeedViewController: UITableViewController {
     var user: User!
     var events: [Event] = []
     
+    //releaseView
+    var selectedRepoName = ""
+    var releaseBody = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "@\(user.login)'s feed"
@@ -27,14 +31,21 @@ class FeedViewController: UITableViewController {
         self.refreshControl = refreshControl
 
         self.tableView.setEmptyMessage("Loading Feed. Please Wait.")
-        self.tableView.contentInset = UIEdgeInsets(top: -20, left: 0, bottom: -30, right: 0)
+        self.tableView.contentInset = UIEdgeInsets(top: -32, left: 0, bottom: -30, right: 0)
          
         let profileView = UIAction(title: "View Profile", image: UIImage(systemName: "person.fill")) { action in
             let url = self.user.html_url
             let safariVC = SFSafariViewController(url: URL(string: url)!)
             self.present(safariVC, animated: true, completion: nil)
         }
-        let menu = UIMenu(title: user.login, children: [profileView])
+        
+        let logout = UIAction(title: "Logout", image: UIImage(systemName: "arrow.up.forward.square.fill"), attributes: .destructive) { action in
+            API.token = ""
+            UserDefaults.standard.set(nil, forKey: "token")
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        let menu = UIMenu(title: user.login, children: [profileView, logout])
         
         let profileBarButtonView = ImageBarButton(withUrl: URL(string: user.avatar_url), menu: menu)
         
@@ -84,6 +95,8 @@ class FeedViewController: UITableViewController {
             action = NSMutableAttributedString()
                 .bold("\(event.actor.login)")
                 .normal(" forked ")
+                .bold("\(event.payload?.forkee?.full_name ?? "")")
+                .normal(" from ")
                 .bold("\(event.repo.name)")
         case "CreateEvent":
             action = NSMutableAttributedString()
@@ -93,7 +106,9 @@ class FeedViewController: UITableViewController {
         case "ReleaseEvent":
             action = NSMutableAttributedString()
                 .bold("\(event.actor.login)")
-                .normal(" released a new version of ")
+                .normal(" released ")
+                .bold("\(event.payload?.release?.tag_name ?? "")")
+                .normal(" of ")
                 .bold("\(event.repo.name)")
         default:
             break
@@ -177,8 +192,20 @@ class FeedViewController: UITableViewController {
                 }
             }
             
+            let viewRelease = UIAction(title: "View Release Notes", image: UIImage(systemName: "doc.richtext.fill"), discoverabilityTitle: "Everything about release \(event.payload?.release?.tag_name ?? "")") { action in
+                guard let release = event.payload?.release else { return }
+                self.selectedRepoName = event.repo.name
+                self.releaseBody = "# \(release.tag_name) \n ###### \(event.repo.name) \n\n" + release.body
+                self.performSegue(withIdentifier: "viewRelease", sender: Any?.self)
+                
+            }
             
-            return UIMenu(title: "", children: [user, repo, starred!, share])
+            if event.type == "ReleaseEvent" {
+                return UIMenu(title: "", children: [user, repo, starred!, viewRelease, share])
+            }
+            else {
+                return UIMenu(title: "", children: [user, repo, starred!, share])
+            }
         }
         
         return config
@@ -199,6 +226,13 @@ class FeedViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let releaseVC = segue.destination as? ReleaseViewController {
+            releaseVC.repoName = selectedRepoName
+            releaseVC.body = releaseBody
+        }
     }
     
 }
@@ -225,12 +259,20 @@ extension FeedViewController: EventsDelegate {
                         repos += 1
                         DispatchQueue.main.async {
                             if repos == self.events.count {
+                                self.events = self.events.filter({ event in
+                                    return event.repository != nil
+                                })
+                                
+                                SPIndicator.present(title: "Long press", message: "to interact with your feed", preset: .custom(UIImage(systemName: "sparkles")!), from: .top, completion: nil)
                                 self.tableView.reloadData()
                                 self.refreshControl?.endRefreshing()
                             }
                         }
                     }
                 case .failure(let error):
+                    event.repository = nil
+                    repos += 1
+                    print("🥵 This Repo has disappeared.")
                     print(error)
                 }
             }

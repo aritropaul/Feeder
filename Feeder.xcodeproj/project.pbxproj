@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		300446EF26935ABE00AC0F86 /* ReleaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300446EE26935ABE00AC0F86 /* ReleaseViewController.swift */; };
+		300446F226935DD300AC0F86 /* MarkdownView in Frameworks */ = {isa = PBXBuildFile; productRef = 300446F126935DD300AC0F86 /* MarkdownView */; };
+		300446F6269361FC00AC0F86 /* keys.json in Resources */ = {isa = PBXBuildFile; fileRef = 300446F5269361FC00AC0F86 /* keys.json */; };
+		300446F8269369ED00AC0F86 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300446F7269369ED00AC0F86 /* SettingsViewController.swift */; };
+		300446FA26936A0300AC0F86 /* AcknowledgmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300446F926936A0300AC0F86 /* AcknowledgmentsViewController.swift */; };
 		30084A3A2689133500939234 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 30084A392689133500939234 /* Nuke */; };
 		30084A3D2689136D00939234 /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 30084A3C2689136D00939234 /* SPIndicator */; };
-		30084A3F2689151F00939234 /* keys.json in Resources */ = {isa = PBXBuildFile; fileRef = 30084A3E2689151F00939234 /* keys.json */; };
 		305E4735267FD32F00F7DB26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305E4734267FD32F00F7DB26 /* AppDelegate.swift */; };
 		305E4737267FD32F00F7DB26 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305E4736267FD32F00F7DB26 /* SceneDelegate.swift */; };
 		305E473C267FD32F00F7DB26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305E473A267FD32F00F7DB26 /* Main.storyboard */; };
@@ -28,7 +32,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		30084A3E2689151F00939234 /* keys.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = keys.json; sourceTree = SOURCE_ROOT; };
+		300446EE26935ABE00AC0F86 /* ReleaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseViewController.swift; sourceTree = "<group>"; };
+		300446F5269361FC00AC0F86 /* keys.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = keys.json; sourceTree = "<group>"; };
+		300446F7269369ED00AC0F86 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		300446F926936A0300AC0F86 /* AcknowledgmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgmentsViewController.swift; sourceTree = "<group>"; };
 		305E4731267FD32F00F7DB26 /* Feeder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feeder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		305E4734267FD32F00F7DB26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		305E4736267FD32F00F7DB26 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,12 +62,31 @@
 			files = (
 				30084A3A2689133500939234 /* Nuke in Frameworks */,
 				30084A3D2689136D00939234 /* SPIndicator in Frameworks */,
+				300446F226935DD300AC0F86 /* MarkdownView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		300446F326935FC900AC0F86 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				305E47602680375200F7DB26 /* ImageBarButton.swift */,
+				305E4754267FF1A000F7DB26 /* EventTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		300446F426935FD300AC0F86 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				300446F5269361FC00AC0F86 /* keys.json */,
+				305E475C267FF57A00F7DB26 /* Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		305E4728267FD32F00F7DB26 = {
 			isa = PBXGroup;
 			children = (
@@ -81,15 +107,16 @@
 			isa = PBXGroup;
 			children = (
 				305E4734267FD32F00F7DB26 /* AppDelegate.swift */,
-				30084A3E2689151F00939234 /* keys.json */,
+				300446F426935FD300AC0F86 /* Utils */,
 				305E4736267FD32F00F7DB26 /* SceneDelegate.swift */,
 				305E4750267FEA8500F7DB26 /* LoginViewController.swift */,
 				305E4752267FEE3B00F7DB26 /* FeedViewController.swift */,
-				305E475C267FF57A00F7DB26 /* Extensions.swift */,
-				305E47602680375200F7DB26 /* ImageBarButton.swift */,
+				300446EE26935ABE00AC0F86 /* ReleaseViewController.swift */,
+				300446F7269369ED00AC0F86 /* SettingsViewController.swift */,
+				300446F926936A0300AC0F86 /* AcknowledgmentsViewController.swift */,
+				300446F326935FC900AC0F86 /* Views */,
 				305E474A267FD3A400F7DB26 /* GithubCore */,
 				305E473A267FD32F00F7DB26 /* Main.storyboard */,
-				305E4754267FF1A000F7DB26 /* EventTableViewCell.swift */,
 				305E473D267FD33100F7DB26 /* Assets.xcassets */,
 				305E473F267FD33100F7DB26 /* LaunchScreen.storyboard */,
 				305E4742267FD33100F7DB26 /* Info.plist */,
@@ -136,6 +163,7 @@
 			packageProductDependencies = (
 				30084A392689133500939234 /* Nuke */,
 				30084A3C2689136D00939234 /* SPIndicator */,
+				300446F126935DD300AC0F86 /* MarkdownView */,
 			);
 			productName = Feeder;
 			productReference = 305E4731267FD32F00F7DB26 /* Feeder.app */;
@@ -168,6 +196,7 @@
 			packageReferences = (
 				30084A382689133500939234 /* XCRemoteSwiftPackageReference "Nuke" */,
 				30084A3B2689136D00939234 /* XCRemoteSwiftPackageReference "SPIndicator" */,
+				300446F026935DD300AC0F86 /* XCRemoteSwiftPackageReference "MarkdownView" */,
 			);
 			productRefGroup = 305E4732267FD32F00F7DB26 /* Products */;
 			projectDirPath = "";
@@ -184,7 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				305E4741267FD33100F7DB26 /* LaunchScreen.storyboard in Resources */,
-				30084A3F2689151F00939234 /* keys.json in Resources */,
+				300446F6269361FC00AC0F86 /* keys.json in Resources */,
 				305E473E267FD33100F7DB26 /* Assets.xcassets in Resources */,
 				305E473C267FD32F00F7DB26 /* Main.storyboard in Resources */,
 			);
@@ -204,7 +233,10 @@
 				305E475F267FF64E00F7DB26 /* Repository.swift in Sources */,
 				305E476326804A1600F7DB26 /* Color.swift in Sources */,
 				305E475D267FF57A00F7DB26 /* Extensions.swift in Sources */,
+				300446FA26936A0300AC0F86 /* AcknowledgmentsViewController.swift in Sources */,
+				300446EF26935ABE00AC0F86 /* ReleaseViewController.swift in Sources */,
 				305E4735267FD32F00F7DB26 /* AppDelegate.swift in Sources */,
+				300446F8269369ED00AC0F86 /* SettingsViewController.swift in Sources */,
 				305E474F267FE68700F7DB26 /* Event.swift in Sources */,
 				305E4753267FEE3B00F7DB26 /* FeedViewController.swift in Sources */,
 				305E4737267FD32F00F7DB26 /* SceneDelegate.swift in Sources */,
@@ -378,7 +410,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -410,7 +442,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -438,6 +470,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		300446F026935DD300AC0F86 /* XCRemoteSwiftPackageReference "MarkdownView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/keitaoouchi/MarkdownView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		30084A382689133500939234 /* XCRemoteSwiftPackageReference "Nuke" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kean/Nuke.git";
@@ -457,6 +497,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		300446F126935DD300AC0F86 /* MarkdownView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 300446F026935DD300AC0F86 /* XCRemoteSwiftPackageReference "MarkdownView" */;
+			productName = MarkdownView;
+		};
 		30084A392689133500939234 /* Nuke */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 30084A382689133500939234 /* XCRemoteSwiftPackageReference "Nuke" */;

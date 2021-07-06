@@ -110,6 +110,12 @@ class FeedViewController: UITableViewController {
                 .bold("\(event.payload?.release?.tag_name ?? "")")
                 .normal(" of ")
                 .bold("\(event.repo.name)")
+        case "PublicEvent":
+            action = NSMutableAttributedString()
+                .bold("\(event.actor.login)")
+                .normal(" made ")
+                .bold("\(event.repo.name)")
+                .normal(" public. ")
         default:
             break
         }
@@ -240,7 +246,7 @@ class FeedViewController: UITableViewController {
 extension FeedViewController: EventsDelegate {
     func didGetEvents(events: [Event]) {
         self.events = events.filter({ event in
-            if event.type == "CreateEvent" || event.type == "WatchEvent" || event.type == "ForkEvent" || event.type == "ReleaseEvent" {
+            if event.type == "CreateEvent" || event.type == "WatchEvent" || event.type == "ForkEvent" || event.type == "ReleaseEvent" || event.type == "PublicEvent" {
                 return true
             }
             return false

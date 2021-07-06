@@ -55,6 +55,14 @@
                                     <action selector="loginTapped:" destination="F6X-4o-VAN" eventType="touchUpInside" id="XZd-1E-rjj"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YhY-qZ-Bhr">
+                                <rect key="frame" x="142" y="265" width="130" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="Nig-S7-2Bg"/>
+                                    <constraint firstAttribute="width" secondItem="YhY-qZ-Bhr" secondAttribute="height" multiplier="1:1" id="RyF-B8-693"/>
+                                </constraints>
+                                <imageReference key="image" image="icon"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8vi-Aj-MWu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -64,6 +72,8 @@
                             <constraint firstItem="538-Tt-8T7" firstAttribute="leading" secondItem="8vi-Aj-MWu" secondAttribute="leading" constant="30" id="MzW-wb-tbh"/>
                             <constraint firstItem="JeK-5T-4qj" firstAttribute="centerY" secondItem="S7H-Xv-TBb" secondAttribute="centerY" id="OgX-ZA-yfd"/>
                             <constraint firstItem="JeK-5T-4qj" firstAttribute="centerX" secondItem="S7H-Xv-TBb" secondAttribute="centerX" id="U0j-R9-Hvs"/>
+                            <constraint firstItem="YhY-qZ-Bhr" firstAttribute="centerX" secondItem="S7H-Xv-TBb" secondAttribute="centerX" id="YQV-jL-WMI"/>
+                            <constraint firstItem="JeK-5T-4qj" firstAttribute="top" secondItem="YhY-qZ-Bhr" secondAttribute="bottom" constant="20" id="f6O-Lb-sse"/>
                             <constraint firstItem="8vi-Aj-MWu" firstAttribute="trailing" secondItem="538-Tt-8T7" secondAttribute="trailing" constant="30" id="xzT-ZG-fN7"/>
                         </constraints>
                     </view>
@@ -229,13 +239,13 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="K1x-2r-gPf">
                                     <rect key="frame" x="108" y="56.5" width="198.5" height="37.5"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Feeder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOS-gy-Sqh">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feeder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOS-gy-Sqh">
                                             <rect key="frame" x="0.0" y="0.0" width="198.5" height="20.5"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="A pleasant Github Feed Viewer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOI-DI-iUi">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A pleasant Github Feed Viewer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOI-DI-iUi">
                                             <rect key="frame" x="0.0" y="20.5" width="198.5" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
@@ -650,6 +660,7 @@
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="globe" catalog="system" width="128" height="121"/>
         <image name="hands.clap" catalog="system" width="128" height="117"/>
+        <image name="icon" width="341.33334350585938" height="337.33334350585938"/>
         <image name="ladybug" catalog="system" width="128" height="128"/>
         <image name="link.circle" catalog="system" width="128" height="121"/>
         <image name="shippingbox" catalog="system" width="128" height="124"/>
